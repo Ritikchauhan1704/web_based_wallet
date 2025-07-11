@@ -13,7 +13,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route path="" element={<ChooseBlockChain />} />
-      <Route path="create-wallet/:id" element={<WalletGenerate />} />
+      <Route path="create-wallet" element={<WalletGenerate />} />
       <Route path="wallet" element={<Wallet />} />
     </Route>
   )

@@ -14,13 +14,13 @@ export default function ChooseBlockChain() {
         <div className="flex flex-col gap-6">
           <button
             className="w-full py-4 rounded-xl border-2 border-white bg-black hover:bg-white hover:text-black transition-colors font-bold text-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-white"
-            onClick={() => navigate("/create-wallet/eth")}
+            onClick={() => navigate("/create-wallet")}
           >
             Ethereum
           </button>
           <button
             className="w-full py-4 rounded-xl border-2 border-white bg-black hover:bg-white hover:text-black transition-colors font-bold text-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-white"
-            onClick={() => navigate("/create-wallet/sol")}
+            onClick={() => navigate("/create-wallet")}
           >
             Solana
           </button>
