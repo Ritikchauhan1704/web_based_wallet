@@ -1,6 +1,5 @@
 # Web Based Wallet
 
-🚧 **Under Construction** 🚧
 
 A modern, web3-inspired wallet app built with React, TypeScript, Vite, and Tailwind CSS. Easily generate secure wallet seed phrases and choose your preferred blockchain with a sleek, black and white UI.
 

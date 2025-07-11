@@ -1,8 +1,8 @@
 import WalletGenerate from "./WalletGenerate";
-import ChooseBlockChain from "./ChooseBlockchain";
+import Welcome from "./Welcome";
 import Wallet from "./Wallet";
 
 
 
 
-export { WalletGenerate, ChooseBlockChain, Wallet };
+export { WalletGenerate, Welcome, Wallet };

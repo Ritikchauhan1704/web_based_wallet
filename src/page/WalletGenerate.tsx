@@ -1,5 +1,5 @@
 import { generateMnemonic } from "bip39";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CryptoJS from "crypto-js";
 import { useNavigate } from "react-router-dom";
 
@@ -29,41 +29,49 @@ export default function WalletGenerate() {
   const goToWallet = () => {
     navigate("/wallet");
   };
+  useEffect(() => {
+    const encrypted = localStorage.getItem("wallet_mnemonic");
+    if (encrypted) {
+      navigate("/wallet");
+    }
+  }, [navigate]);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black px-4">
-      <div className="max-w-lg w-full bg-white bg-opacity-5 rounded-2xl shadow-xl p-8 flex flex-col items-center">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900 flex items-center justify-center p-6">
+      <div className="bg-black bg-opacity-60 backdrop-blur-md rounded-3xl p-8 max-w-lg w-full text-white">
         {memonics ? (
-          <div className="w-full mb-4">
-            <div className="border-2 border-white rounded-xl p-4 text-lg font-mono flex flex-col items-center relative">
-              <span className="break-words text-center select-all ">
-                {memonics}
-              </span>
+          <>
+            <h2 className="text-2xl font-bold mb-4">Your Seed Phrase</h2>
+            <div className="border-2 border-white rounded-xl p-4 font-mono text-sm mb-4 break-words text-center">
+              {memonics}
+            </div>
+            <div className="flex flex-col gap-4">
               <button
-                className="w-full py-4 mt-6 rounded-xl border-2 border-white bg-black hover:bg-white hover:text-black transition-colors font-bold text-xl shadow-lg text-white"
                 onClick={handleCopy}
+                className="w-full py-3 rounded-xl border-2 border-white bg-white text-black font-semibold hover:bg-transparent hover:text-white transition"
               >
-                {copied ? "Copied!" : "Copy"}
+                {copied ? "Copied!" : "Copy Seed"}
               </button>
               <button
-                className="w-full py-4 mt-4 rounded-xl border-2 border-white bg-white text-black hover:bg-black hover:text-white transition-colors font-bold text-xl shadow-lg"
                 onClick={goToWallet}
+                className="w-full py-3 rounded-xl border-2 border-white bg-transparent text-white font-semibold hover:bg-white hover:text-black transition"
               >
                 Go to Wallet
               </button>
             </div>
-            <p className="text-xs mt-2 text-center ">
+            <p className="text-xs text-gray-400 mt-4">
               Keep your seed phrase safe and never share it with anyone.
             </p>
-          </div>
+          </>
         ) : (
           <>
-            <h2 className="text-2xl md:text-3xl font-extrabold mb-4 tracking-tight ">
-              Generate Wallet Seed Phrase
-            </h2>
+            <h2 className="text-3xl font-extrabold mb-6">Welcome</h2>
+            <p className="text-gray-400 mb-8">
+              Generate a new wallet seed phrase to get started.
+            </p>
             <button
-              className="w-full py-4 rounded-xl border-2 border-white hover:bg-white hover:text-black transition-colors font-bold text-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-white text-white bg-black"
               onClick={generateMem}
+              className="w-full py-4 rounded-2xl border-2 border-white bg-white text-black font-semibold hover:bg-transparent hover:text-white transition"
             >
               Create Seed Phrase
             </button>

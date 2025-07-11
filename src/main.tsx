@@ -7,12 +7,12 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import { ChooseBlockChain, Wallet, WalletGenerate } from "./page";
+import { Welcome, Wallet, WalletGenerate } from "./page";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route path="" element={<ChooseBlockChain />} />
+      <Route path="" element={<Welcome />} />
       <Route path="create-wallet" element={<WalletGenerate />} />
       <Route path="wallet" element={<Wallet />} />
     </Route>
